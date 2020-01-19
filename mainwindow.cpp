@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply *)));
     connect(ui->pushButton_2, SIGNAL(clicked()),this,SLOT(on_analyzeButton_clicked()));
+    connect(ui->refreshButton, SIGNAL(clicked()),this,SLOT(on_refreshButton_clicked()));
 
     downloadedThematicDictionaries = getDownloadedRubrics();
     for (int i=0;i<downloadedThematicDictionaries.size();i++)
@@ -45,10 +46,12 @@ void MainWindow::on_analyzeButton_clicked()
     analyzeText(ui->plainTextEdit_2->toPlainText());
 }
 
-void MainWindow::analyzeText(QString text)
+void MainWindow::on_refreshButton_clicked()
 {
     updateDictionaries();
-
+}
+void MainWindow::analyzeText(QString text)
+{
     model->clear();
 
     QString str = text.toLower();

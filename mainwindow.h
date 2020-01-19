@@ -43,5 +43,6 @@ private:
 private slots:
     void on_analyzeButton_clicked();
     void replyFinished(QNetworkReply *);
+    void on_refreshButton_clicked();
 };
 #endif // MAINWINDOW_H
